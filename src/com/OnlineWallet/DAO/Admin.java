@@ -8,5 +8,5 @@ import com.OnlineWallet.bean.User;
 public interface Admin {
 
 	public HashMap<Integer, User> verified_users() throws SQLException;
-	public HashMap<Integer, User> unverified_users();
+	public HashMap<Integer, User> unverified_users() throws SQLException;
 }

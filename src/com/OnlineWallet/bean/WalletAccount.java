@@ -11,13 +11,13 @@ public class WalletAccount {
 	List<Integer> TransactionHistory=null;
 	
 	
-	public WalletAccount(int accountId, double accountbalance, String status, int userId) {
+	public WalletAccount(int accountId, double accountbalance, String status, int userId,List<Integer> list1) {
 		super();
 		this.AccountId = accountId;
 		this.Accountbalance = accountbalance;
 		this.status = status;
 		this.UserId = userId;
-		this.TransactionHistory = new ArrayList<>();		
+		this.TransactionHistory = list1;		
 	}
 	public int getAccountId() {
 		return AccountId;

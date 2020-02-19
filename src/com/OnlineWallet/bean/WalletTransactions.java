@@ -1,19 +1,22 @@
 package com.OnlineWallet.bean;
 
-import java.time.LocalDate;
+import java.sql.Time;
+import java.util.Date;
 
 public class WalletTransactions {
 	private int TransactionId;
 	private String Description;
-	private LocalDate DateOfTransaction;
+	private Date DateOfTransaction;
+	private Time TimeOfTransaction;
 	private double Amount;
 	private double ClosingAccountBalance;
 
-	public WalletTransactions(int transactionId, String description, double amount, double closingAccountBalance) {
+	public WalletTransactions(int transactionId, String description,Date DateofTransaction,Time time,double amount, double closingAccountBalance) {
 		super();
 		TransactionId = transactionId;
 		Description = description;
-		DateOfTransaction = LocalDate.now();
+		this.DateOfTransaction = DateOfTransaction;
+		this.TimeOfTransaction=time;
 		Amount = amount;
 		ClosingAccountBalance = closingAccountBalance;
 	}
@@ -84,11 +87,19 @@ public class WalletTransactions {
 		Description = description;
 	}
 
-	public LocalDate getDateOfTransaction() {
+	public Date getDateOfTransaction() {
 		return DateOfTransaction;
 	}
 
-	public void setDateOfTransaction(LocalDate dateOfTransaction) {
+	public Time getTimeOfTransaction() {
+		return TimeOfTransaction;
+	}
+
+	public void setTimeOfTransaction(Time timeOfTransaction) {
+		TimeOfTransaction = timeOfTransaction;
+	}
+
+	public void setDateOfTransaction(Date dateOfTransaction) {
 		DateOfTransaction = dateOfTransaction;
 	}
 

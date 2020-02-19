@@ -72,6 +72,14 @@ public class User {
 		LoginName = loginName;
 		this.Email =  email;
 	}
+	public User( int id,String userName,  String phoneNo, String loginName, String email) {
+		super();
+		this.UserId = id;
+		UserName = userName;
+		this.phoneNo = phoneNo;
+		LoginName = loginName;
+		this.Email =  email;
+	}
 
 	public int getId() {
 		return UserId;

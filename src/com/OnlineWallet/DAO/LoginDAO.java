@@ -9,10 +9,10 @@ import java.sql.Statement;
 import com.OnlineWallet.Database.DatabaseUtil;
 
 public class LoginDAO {
-	static Connection connection;
-	static Statement statement;
-	static ResultSet resultSet;
-	static PreparedStatement prepared;
+	static Connection connection=null;
+	static Statement statement=null;
+	static ResultSet resultSet=null;
+	static PreparedStatement prepared=null;
 
 	public LoginDAO() throws SQLException {
 		connection = DatabaseUtil.myconnection();
@@ -25,6 +25,23 @@ public class LoginDAO {
 		resultSet=prepared.executeQuery();
 		if(resultSet.next())
 		{
+			if(resultSet.getString(1).equals(password))
+				return true;
+			else
+				return false;
+		}
+		return false;
+	}
+	
+	public boolean LoginAdmin(String loginName, String password) throws SQLException
+	{
+		prepared = connection.prepareStatement("Select * from admin where username=?");
+		prepared.setString(1, loginName);
+		resultSet=prepared.executeQuery();
+		//System.out.println("hello 1 ");
+		if(resultSet.next())
+		{
+			//System.out.println("hello 2" +resultSet.getString(1));
 			if(resultSet.getString(1).equals(password))
 				return true;
 			else

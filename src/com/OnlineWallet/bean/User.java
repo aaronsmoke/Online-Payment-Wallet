@@ -63,6 +63,15 @@ public class User {
 		LoginName = loginName;
 		this.Email =  email;
 	}
+	public User( int id,String userName, String password, String phoneNo, String loginName, String email) {
+		super();
+		this.UserId = id;
+		UserName = userName;
+		this.password = password;
+		this.phoneNo = phoneNo;
+		LoginName = loginName;
+		this.Email =  email;
+	}
 
 	public int getId() {
 		return UserId;

@@ -43,7 +43,7 @@ public class RegisterDAO {
 	}
 
 	public boolean RegisterService(User user) throws SQLException {
-		prepared = connection.prepareStatement("insert into WalletUser(username,password,phonenumber,loginname,email_address) values(?,?,?,?,?)");
+		prepared = connection.prepareStatement("insert into TempWalletUser(username,password,phonenumber,loginname,email_address) values(?,?,?,?,?)");
 		//prepared.setInt(1, user.getId());
 		prepared.setString(1, user.getUserName());
 		prepared.setString(2, user.getPassword());

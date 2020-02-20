@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import com.OnlineWallet.Database.DatabaseUtil;
 import com.OnlineWallet.Exception.AddAmountException;
+import com.OnlineWallet.bean.WalletAccount;
 
 public class AmountDAO {
 	static Connection connection = null;
@@ -27,14 +28,14 @@ public class AmountDAO {
 		if (resultSet.next()) {
 
 			if (resultSet.getInt(2) == mon && resultSet.getInt(3) == year && resultSet.getString(4).equals(cvv)) {
-				System.out.println("Heelo 4");
+				//System.out.println("Heelo 4");
 				Ava = resultSet.getFloat(5);
 				if (Ava > amount) {
-					System.out.println("Heelo 5");
+					//System.out.println("Heelo 5");
 					prepared2 = connection
 							.prepareStatement("select accountbalance from walletAccount where accountid =?");
 					prepared2.setInt(1, id);
-					System.out.println("Heelo 6");
+					//System.out.println("Heelo 6");
 					resultSet2 = prepared2.executeQuery();
 					if (resultSet2.next()) {
 						// System.out.println("Heelo 7");
@@ -56,7 +57,7 @@ public class AmountDAO {
 							if (res == 1) {
 								// System.out.println("Heelo 9");
 								connection.commit();
-								System.out.println("All done !!");
+								System.out.println("Amount Updated Succesfully........... !!");
 								return true;
 							} else {
 								connection.rollback();
@@ -75,4 +76,17 @@ public class AmountDAO {
 		}
 		return false;
 	}
+	public double showbalance(WalletAccount wallet) throws SQLException
+	{
+		prepared = connection.prepareStatement("select * from walletaccount where accountid=?");
+		prepared.setInt(1, wallet.getAccountId());
+		resultSet = prepared.executeQuery();
+		if(resultSet.next())
+		{
+			return resultSet.getDouble(2);
+		}
+		return 0.0;
+		
+	}
+	
 }

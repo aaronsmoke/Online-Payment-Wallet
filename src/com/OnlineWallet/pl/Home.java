@@ -19,10 +19,11 @@ public class Home {
 	WalletAccount wallet = null;
 	Scanner sc = null;
 
-	void homeMenu() throws RegisterException, SQLException, InterruptedException, AddAmountException,
+	public void homeMenu() throws RegisterException, SQLException, InterruptedException, AddAmountException,
 			FileNotFoundException, UpdateDataException, FundTransferException, ForgetPasswordException {
 		System.out.println("Enter 1 for Register new user");
 		System.out.println("Enter 2 for Login ");
+		System.out.println("Enter 3 for Forget Password ");
 		sc = new Scanner(System.in);
 		int ch = sc.nextInt();
 		switch (ch) {
@@ -39,16 +40,26 @@ public class Home {
 			menu.m1(user, wallet);
 			break;
 		}
-		case 3:{
+		case 3: {
 			System.out.println("--FORGET PASSWORD--");
 			ForgetPassword forget = new ForgetPassword();
 			forget.Forgot();
+			
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			Home home = new Home();
+			home.homeMenu();
+			break;
 		}
 
 		}
 	}
-	public static void main(String[] args) throws FileNotFoundException, RegisterException, SQLException, InterruptedException, AddAmountException, UpdateDataException, FundTransferException, ForgetPasswordException {
-   Home home = new Home();
-   home.homeMenu();
+
+	public static void main(String[] args)
+			throws FileNotFoundException, RegisterException, SQLException, InterruptedException, AddAmountException,
+			UpdateDataException, FundTransferException, ForgetPasswordException {
+		Home home = new Home();
+		home.homeMenu();
 	}
 }

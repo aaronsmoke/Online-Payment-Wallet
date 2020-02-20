@@ -63,6 +63,10 @@ public class LoginDAO {
 	{
 		list1 = new ArrayList<>();
 		prepared = connection.prepareStatement("Select * from walletaccount where userid=?");
+		if(prepared==null)
+			System.out.println("prepared is null");
+		if(connection==null)
+			System.out.println("conn is null");
 		prepared.setInt(1, user.getId());
 		resultSet=prepared.executeQuery();
 		if(resultSet.next())

@@ -14,7 +14,7 @@ public class AdminDAO implements Admin {
 	static Connection connection = null;
 	static ResultSet resultSet = null, resultSet2 = null;
 	static PreparedStatement prepared = null, prepared2 = null, prepared3 = null;
-	HashMap<Integer, User> hashmap;
+	HashMap<Integer, User> hashmap=null;
 	User user = null;
 
 	public AdminDAO() throws SQLException {

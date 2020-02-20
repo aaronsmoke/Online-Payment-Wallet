@@ -27,18 +27,17 @@ public class AdminMenu {
 		System.out.println("Press 1 for  view Verified customers");
 		System.out.println("Press 2 for unverified customers");
 		System.out.println("Press 3 for logout");
-		System.out.flush();
 		int ch = sc.nextInt();
 		switch (ch) {
 		case 1: {
                  hashmap = admin.verified_users();
-                 new AdminMenu().viewHashmap(hashmap);
-                 
+                 (new AdminMenu()).viewHashmap(hashmap);
                  break;
 		}
 		case 2: {
 			hashmap=admin.unverified_users();
-			new AdminMenu().viewHashmap2(hashmap);
+			(new AdminMenu()).viewHashmap2(hashmap);
+			break;
 
 		}
 		case 3: {
@@ -64,6 +63,8 @@ public class AdminMenu {
 		char ch;
 		sc = new Scanner(System.in);
 		admin = new AdminDAO();
+		System.out.println();
+		System.out.println();
 		System.out.println("UserId   UserName   UserPhone   UserEmail    LoginName");
 		for(Integer key:set1)
 		{
@@ -85,6 +86,10 @@ public class AdminMenu {
 				else
 					System.out.println("DisApproval fail!!");	
 			}
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
 		}
 	}
 

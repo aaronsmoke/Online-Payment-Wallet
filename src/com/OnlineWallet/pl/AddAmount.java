@@ -17,7 +17,7 @@ public class AddAmount {
 	AmountDAO am = null;
 
 	public void addmoney(User user, WalletAccount wallet) throws InterruptedException, RegisterException, SQLException, AddAmountException {
-		System.out.println("Enter the amount to be added");
+		System.out.print("Enter the amount to be added: ");
 		sc = new Scanner(System.in);
 		am = new AmountDAO();
 		add_amount = sc.nextInt();
@@ -45,7 +45,7 @@ public class AddAmount {
 			str.insert(14, "-");
 			// str.insert(19, "-");
 			card_no = str.toString();
-			System.out.println("Enter expirary month");
+			System.out.println("Enter expiry month");
 			int ex_month = sc.nextInt();
 			sc.nextLine();
 			System.out.println("Enter expiry year");
@@ -70,17 +70,19 @@ public class AddAmount {
 
 			}
 		if(	am.CardCheck(card_no, ex_month, ex_year, cvv_no, add_amount, wallet.getAccountId()))
-			System.out.println("Amount added");
+			System.out.println("Amount is added");
 		else
-			System.out.println("Kuch nahi hua bhaiyaa");
+			System.out.println("Amount is not added");
 			break;
 		}
 		case 2: {
 			System.out.println("Enter the upi id");
 			String upi_id = sc.nextLine();
+			System.out.println("Sorry we are working on this!!!\nSorry for the inconvenience");
 			break;
 		}
 		case 3: {
+			System.out.println("Sorry we are working on this!!!\\nSorry for the inconvenience");
 			break;
 		}
 		}

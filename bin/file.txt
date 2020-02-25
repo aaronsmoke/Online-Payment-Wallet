@@ -1,4 +1,0 @@
-Account Id  Transaction Id     Recivier ID     Description            Time            Amnt Closing Acc. Bal             DOT
-     11033           11031          100001          hello!        00:43:29       60.000000      440.000000            null
-
-     11032           11031          100000        hello !!        00:41:35       50.000000      500.000000            null
